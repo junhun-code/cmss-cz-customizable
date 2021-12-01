@@ -32,6 +32,13 @@ const addType = (type, config) => {
   return _.trim(`${prefix}${type}${suffix}`);
 };
 
+const addSource = (type, config) => {
+  const prefix = _.get(config, 'typePrefix', '');
+  const suffix = _.get(config, 'typeSuffix', '');
+
+  return _.trim(`${prefix}${type}${suffix}`);
+};
+
 const addBreaklinesIfNeeded = (value, breaklineChar = defaultBreaklineChar) =>
   value
     .split(breaklineChar)
@@ -43,7 +50,7 @@ const addFooter = (footer, config) => {
 
   const footerPrefix = config && config.footerPrefix ? config.footerPrefix : 'ISSUES CLOSED:';
 
-  return `\n\n${footerPrefix} ${addBreaklinesIfNeeded(footer, config.breaklineChar)}`;
+  return `\n${footerPrefix} ${addBreaklinesIfNeeded(footer, config.breaklineChar)}\n${ config.footerSuffix}`;
 };
 
 const escapeSpecialChars = result => {
@@ -76,6 +83,9 @@ module.exports = (answers, config) => {
     addTicketNumber(answers.ticketNumber, config) +
     addSubject(answers.subject.slice(0, config.subjectLimit));
 
+  // Code Source From
+  const source = addSource(answers.source, config)
+
   // Wrap these lines at 100 characters
   let body = wrap(answers.body, wrapOptions) || '';
   body = addBreaklinesIfNeeded(body, config.breaklineChar);
@@ -84,12 +94,13 @@ module.exports = (answers, config) => {
   const footer = wrap(answers.footer, wrapOptions);
 
   let result = head;
+  result += `\n\n${config.sourcePrefix}${source}`
   if (body) {
-    result += `\n\n${body}`;
+    result += `\n${config.bodyPrefix}${body}`;
   }
   if (breaking) {
     const breakingPrefix = config && config.breakingPrefix ? config.breakingPrefix : 'BREAKING CHANGE:';
-    result += `\n\n${breakingPrefix}\n${breaking}`;
+    result += `\n${breakingPrefix}\n${breaking}`;
   }
   if (footer) {
     result += addFooter(footer, config);
