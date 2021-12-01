@@ -60,6 +60,7 @@ module.exports = {
       }
     }
     messages.subject = messages.subject || 'Write a SHORT, IMPERATIVE tense description of the change:\n';
+    messages.source = messages.source || 'Where is the code from:\n';
     messages.body =
       messages.body || 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n';
     messages.breaking = messages.breaking || 'List any BREAKING CHANGES (optional):\n';
@@ -108,6 +109,12 @@ module.exports = {
           }
           return isNotWip(answers);
         },
+      },
+      {
+        type: 'list',
+        name: 'source',
+        message: messages.source,
+        choices: config.sources
       },
       {
         type: 'input',
