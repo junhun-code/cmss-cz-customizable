@@ -155,7 +155,7 @@ module.exports = {
       {
         type: 'input',
         name: 'body',
-        message: messages.body,
+        message: messages.body
       },
       {
         type: 'input',
