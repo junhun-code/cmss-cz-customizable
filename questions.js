@@ -139,7 +139,6 @@ module.exports = {
         type: 'input',
         name: 'subject',
         message: messages.subject,
-        default: getPreparedCommit('subject'),
         validate(value) {
           const limit = config.subjectLimit || 100;
           if (value.length > limit) {
@@ -157,7 +156,6 @@ module.exports = {
         type: 'input',
         name: 'body',
         message: messages.body,
-        default: getPreparedCommit('body'),
       },
       {
         type: 'input',
