@@ -1,4 +1,4 @@
-# cz-customizable
+# cmss-cz-customizable
 
 The customizable Commitizen plugin (or standalone utility) to help achieve consistent commit messages like the [AngularJS team](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines).
 
@@ -10,36 +10,36 @@ Suitable for large teams working with multiple projects with their own commit sc
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Build Status](https://travis-ci.org/leonardoanalista/cz-customizable.svg)](https://travis-ci.org/leonardoanalista/cz-customizable) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![codecov.io](https://codecov.io/github/leonardoanalista/cz-customizable/coverage.svg?branch=master)](https://codecov.io/github/leonardoanalista/cz-customizable?branch=master) [![npm monthly downloads](https://img.shields.io/npm/dm/cz-customizable.svg?style=flat-square)](https://www.npmjs.com/package/cz-customizable)
 
 
-You have two ways to use `cz-customizable`. Originally, this project started as a commitizen plugin (Option 1). We introduced the second option to run this `cz-customizable` in standalone mode (Option 2), just like any NodeJS script. It's recommended to use `Option 2` for simplicity. The way you configure is shared between both options.
+You have two ways to use `cmss-cz-customizable`. Originally, this project started as a commitizen plugin (Option 1). We introduced the second option to run this `cmss-cz-customizable` in standalone mode (Option 2), just like any NodeJS script. It's recommended to use `Option 2` for simplicity. The way you configure is shared between both options.
 
 
-## Option 1 - cz-customizable as commitizen plugin
+## Option 1 - cmss-cz-customizable as commitizen plugin
 
 * install commitizen in case you don't have it: `npm install -g commitizen`. Make sure you have the latest version of commitizen installed globally.
 
-* configure `commitizen` to use `cz-customizable` as plugin. Add those lines to your `package.json`:
+* configure `commitizen` to use `cmss-cz-customizable` as plugin. Add those lines to your `package.json`:
 
 ```
 ...
 "config": {
   "commitizen": {
-    "path": "node_modules/cz-customizable"
+    "path": "node_modules/cmss-cz-customizable"
   }
 }
 ```
 
 
-## Option 2 - cz-customizable in standalone mode **(New)**
+## Option 2 - cmss-cz-customizable in standalone mode **(New)**
 
-Use `cz-customizable` without `commitzen`.
+Use `cmss-cz-customizable` without `commitzen`.
 
-* npm install `npm install cz-customizable --save-dev`
+* npm install `npm install cmss-cz-customizable --save-dev`
 * add a new script to your `package.json`:
 
 ```
 "scripts" : {
   ...
-  "commit": "./node_modules/cz-customizable/standalone.js"
+  "commit": "./node_modules/cmss-cz-customizable/standalone.js"
 }
 ```
 
@@ -61,7 +61,7 @@ Use `cz-customizable` without `commitzen`.
 ...
 "config": {
   "commitizen": { // not needed for standlone usage
-    "path": "node_modules/cz-customizable"
+    "path": "node_modules/cmss-cz-customizable"
   },
   "cz-customizable": {
     "config": "config/path/to/my/config.js"
@@ -84,8 +84,8 @@ Steps:
 #### Additional steps when used as commitizen plugin
 
 * npm install -g commitizen
-* npm install -g cz-customizable. Make sure you have version `>v5.6.x`
-* create global commitizen config file `.czrc`: `echo '{ "path": "cz-customizable" }' > ~/.czrc`
+* npm install -g cmss-cz-customizable. Make sure you have version `>v5.6.x`
+* create global commitizen config file `.czrc`: `echo '{ "path": "cmss-cz-customizable" }' > ~/.czrc`
 * now run: `npx git-cz` or `git cz`.
 
 
