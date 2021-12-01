@@ -111,12 +111,6 @@ module.exports = {
         },
       },
       {
-        type: 'list',
-        name: 'source',
-        message: messages.source,
-        choices: config.sources
-      },
-      {
         type: 'input',
         name: 'scope',
         message: messages.customScope,
@@ -151,6 +145,12 @@ module.exports = {
 
           return (upperCaseSubject ? value.charAt(0).toUpperCase() : value.charAt(0).toLowerCase()) + value.slice(1);
         },
+      },
+      {
+        type: 'list',
+        name: 'source',
+        message: messages.source,
+        choices: config.sources
       },
       {
         type: 'input',
