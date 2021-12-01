@@ -50,7 +50,7 @@ const addFooter = (footer, config) => {
 
   const footerPrefix = config && config.footerPrefix ? config.footerPrefix : 'ISSUES CLOSED:';
 
-  return `\n${footerPrefix} ${addBreaklinesIfNeeded(footer, config.breaklineChar)}\n${ config.footerSuffix}`;
+  return `\n${footerPrefix}${addBreaklinesIfNeeded(footer, config.breaklineChar)}\n${ config.footerSuffix}`;
 };
 
 const escapeSpecialChars = result => {
@@ -95,9 +95,7 @@ module.exports = (answers, config) => {
 
   let result = head;
   result += `\n\n${config.sourcePrefix}${source}`
-  if (body) {
-    result += `\n${config.bodyPrefix}${body}`;
-  }
+  result += `\n${config.bodyPrefix}${body}`;
   if (breaking) {
     const breakingPrefix = config && config.breakingPrefix ? config.breakingPrefix : 'BREAKING CHANGE:';
     result += `\n${breakingPrefix}\n${breaking}`;
